@@ -14,6 +14,7 @@
 		6F786CF1279E02C600FB4A4D /* ninjaswiftuiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F786CF0279E02C600FB4A4D /* ninjaswiftuiTests.swift */; };
 		6F786CFB279E02C600FB4A4D /* ninjaswiftuiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F786CFA279E02C600FB4A4D /* ninjaswiftuiUITests.swift */; };
 		6F786CFD279E02C600FB4A4D /* ninjaswiftuiUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F786CFC279E02C600FB4A4D /* ninjaswiftuiUITestsLaunchTests.swift */; };
+		6F786D0A279E07F700FB4A4D /* ColorGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F786D09279E07F700FB4A4D /* ColorGenerator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		6F786CF6279E02C600FB4A4D /* ninjaswiftuiUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ninjaswiftuiUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F786CFA279E02C600FB4A4D /* ninjaswiftuiUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ninjaswiftuiUITests.swift; sourceTree = "<group>"; };
 		6F786CFC279E02C600FB4A4D /* ninjaswiftuiUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ninjaswiftuiUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		6F786D09279E07F700FB4A4D /* ColorGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorGenerator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 			children = (
 				6F786CDF279E02C600FB4A4D /* ninjaswiftuiApp.swift */,
 				6F786CE1279E02C600FB4A4D /* ContentView.swift */,
+				6F786D09279E07F700FB4A4D /* ColorGenerator.swift */,
 				6F786CE3279E02C600FB4A4D /* Assets.xcassets */,
 				6F786CE5279E02C600FB4A4D /* Preview Content */,
 			);
@@ -257,6 +260,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6F786D0A279E07F700FB4A4D /* ColorGenerator.swift in Sources */,
 				6F786CE2279E02C600FB4A4D /* ContentView.swift in Sources */,
 				6F786CE0279E02C600FB4A4D /* ninjaswiftuiApp.swift in Sources */,
 			);
