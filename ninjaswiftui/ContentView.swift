@@ -22,6 +22,7 @@ class GameScene: SKScene {
         let box = SKSpriteNode(color: generator.random(), size: CGSize(width: boxSize, height: boxSize))
         box.position = location
         box.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: boxSize, height: boxSize))
+        box.physicsBody?.restitution = 0.8
         addChild(box)
     }
 }
