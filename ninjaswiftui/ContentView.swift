@@ -8,27 +8,9 @@
 import SwiftUI
 import SpriteKit
 
-// A simple game scene with falling boxes
-class GameScene: SKScene {
-    let generator = ColorGenerator()
-    override func didMove(to view: SKView) {
-        physicsBody = SKPhysicsBody(edgeLoopFrom: frame)
-    }
 
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        guard let touch = touches.first else { return }
-        let location = touch.location(in: self)
-        let boxSize = Int.random(in: 20...50)
-        let box = SKSpriteNode(color: generator.random(), size: CGSize(width: boxSize, height: boxSize))
-        box.position = location
-        box.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: boxSize, height: boxSize))
-        box.physicsBody?.restitution = 0.8
-        addChild(box)
-    }
-}
 
-// A sample SwiftUI creating a GameScene and sizing it
-// at 300x400 points
+
 struct ContentView: View {
     var scene: SKScene {
         let scene = GameScene()

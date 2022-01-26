@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6F58679627A20F9C00208535 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F58679527A20F9C00208535 /* GameScene.swift */; };
+		6F58679927A2102900208535 /* background-music-aac.caf in Resources */ = {isa = PBXBuildFile; fileRef = 6F58679827A2102900208535 /* background-music-aac.caf */; };
+		6F58679B27A2104100208535 /* pew-pew-lei.caf in Resources */ = {isa = PBXBuildFile; fileRef = 6F58679A27A2104100208535 /* pew-pew-lei.caf */; };
 		6F786CE0279E02C600FB4A4D /* ninjaswiftuiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F786CDF279E02C600FB4A4D /* ninjaswiftuiApp.swift */; };
 		6F786CE2279E02C600FB4A4D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F786CE1279E02C600FB4A4D /* ContentView.swift */; };
 		6F786CE4279E02C600FB4A4D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6F786CE3279E02C600FB4A4D /* Assets.xcassets */; };
@@ -14,7 +17,6 @@
 		6F786CF1279E02C600FB4A4D /* ninjaswiftuiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F786CF0279E02C600FB4A4D /* ninjaswiftuiTests.swift */; };
 		6F786CFB279E02C600FB4A4D /* ninjaswiftuiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F786CFA279E02C600FB4A4D /* ninjaswiftuiUITests.swift */; };
 		6F786CFD279E02C600FB4A4D /* ninjaswiftuiUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F786CFC279E02C600FB4A4D /* ninjaswiftuiUITestsLaunchTests.swift */; };
-		6F786D0A279E07F700FB4A4D /* ColorGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F786D09279E07F700FB4A4D /* ColorGenerator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +37,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6F58679527A20F9C00208535 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		6F58679827A2102900208535 /* background-music-aac.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "background-music-aac.caf"; sourceTree = "<group>"; };
+		6F58679A27A2104100208535 /* pew-pew-lei.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "pew-pew-lei.caf"; sourceTree = "<group>"; };
 		6F786CDC279E02C600FB4A4D /* ninjaswiftui.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ninjaswiftui.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F786CDF279E02C600FB4A4D /* ninjaswiftuiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ninjaswiftuiApp.swift; sourceTree = "<group>"; };
 		6F786CE1279E02C600FB4A4D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -45,7 +50,6 @@
 		6F786CF6279E02C600FB4A4D /* ninjaswiftuiUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ninjaswiftuiUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F786CFA279E02C600FB4A4D /* ninjaswiftuiUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ninjaswiftuiUITests.swift; sourceTree = "<group>"; };
 		6F786CFC279E02C600FB4A4D /* ninjaswiftuiUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ninjaswiftuiUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		6F786D09279E07F700FB4A4D /* ColorGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorGenerator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +77,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6F58679727A2100900208535 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				6F58679A27A2104100208535 /* pew-pew-lei.caf */,
+				6F58679827A2102900208535 /* background-music-aac.caf */,
+			);
+			path = Sounds;
+			sourceTree = "<group>";
+		};
 		6F786CD3279E02C500FB4A4D = {
 			isa = PBXGroup;
 			children = (
@@ -96,9 +109,10 @@
 		6F786CDE279E02C600FB4A4D /* ninjaswiftui */ = {
 			isa = PBXGroup;
 			children = (
+				6F58679727A2100900208535 /* Sounds */,
+				6F58679527A20F9C00208535 /* GameScene.swift */,
 				6F786CDF279E02C600FB4A4D /* ninjaswiftuiApp.swift */,
 				6F786CE1279E02C600FB4A4D /* ContentView.swift */,
-				6F786D09279E07F700FB4A4D /* ColorGenerator.swift */,
 				6F786CE3279E02C600FB4A4D /* Assets.xcassets */,
 				6F786CE5279E02C600FB4A4D /* Preview Content */,
 			);
@@ -236,6 +250,8 @@
 			files = (
 				6F786CE7279E02C600FB4A4D /* Preview Assets.xcassets in Resources */,
 				6F786CE4279E02C600FB4A4D /* Assets.xcassets in Resources */,
+				6F58679927A2102900208535 /* background-music-aac.caf in Resources */,
+				6F58679B27A2104100208535 /* pew-pew-lei.caf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,7 +276,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6F786D0A279E07F700FB4A4D /* ColorGenerator.swift in Sources */,
+				6F58679627A20F9C00208535 /* GameScene.swift in Sources */,
 				6F786CE2279E02C600FB4A4D /* ContentView.swift in Sources */,
 				6F786CE0279E02C600FB4A4D /* ninjaswiftuiApp.swift in Sources */,
 			);
