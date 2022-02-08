@@ -64,6 +64,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 SKAction.wait(forDuration: 1.0)
                 ])))
         
+        let backgroundMusic =
+        SKAudioNode(fileNamed: "background-music-aac.caf")
+        
+        backgroundMusic.autoplayLooped = true
+        
+        addChild(backgroundMusic)
+        
     }
     
     func random() -> CGFloat {
@@ -97,4 +104,30 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         monster.run(SKAction.sequence([actionMove,actionMoveDone]))
     }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        guard let touch = touches.first else {
+            return
+        }
+        
+        let touchLocation = touch.location(in: self)
+        
+        let projectile = SKSpriteNode(imageNamed: "projectile")
+        projectile.position = player.position
+        
+        
+        projectile.physicsBody = SKPhysicsBody(circleOfRadius: projectile.size.width/2)
+        
+        projectile.physicsBody?.isDynamic = true
+        projectile.physicsBody?.categoryBitMask = PhysicsCategory.projectile
+        projectile.physicsBody?.contactTestBitMask = PhysicsCategory.monster
+        projectile.physicsBody?.collisionBitMask = PhysicsCategory.none
+        projectile.physicsBody?.usesPreciseCollisionDetection = true
+        
+        let offset = touchLocation - projectile.position
+        if offset.x < 0 {return}
+        addChild(projectile)
+        
+    }
+    
 }
