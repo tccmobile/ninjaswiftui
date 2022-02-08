@@ -58,6 +58,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         physicsWorld.gravity = .zero
         physicsWorld.contactDelegate = self
         
+        run(SKAction.repeatForever(
+            SKAction.sequence([
+                SKAction.run(addMonster),
+                SKAction.wait(forDuration: 1.0)
+                ])))
+        
     }
     
     func random() -> CGFloat {
@@ -82,5 +88,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         monster.position = CGPoint(x: size.width + monster.size.width/2, y: actualY)
         
         addChild(monster)
+        
+        let actualDuration = random(min: CGFloat(2.0), max: CGFloat(4.0))
+        
+        let actionMove = SKAction.move(to: CGPoint(x: -monster.size.width/2, y: actualY), duration: TimeInterval(actualDuration))
+        
+        let actionMoveDone = SKAction.removeFromParent()
+        
+        monster.run(SKAction.sequence([actionMove,actionMoveDone]))
     }
 }
