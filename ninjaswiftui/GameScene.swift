@@ -40,7 +40,7 @@ extension CGPoint {
   }
 }
 
-class GameScene: SKScene, SKPhysicsContactDelegate {
+class GameScene: SKScene {
     struct PhysicsCategory {
         static let none      : UInt32 = 0
         static let all       : UInt32 = UInt32.max
@@ -49,6 +49,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
       }
     
     let player = SKSpriteNode(imageNamed:  "player")
+    var monstersDestroyed = 0
     
     override func didMove(to view: SKView) {
         backgroundColor = SKColor.white
@@ -110,6 +111,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             return
         }
         
+        run(SKAction.playSoundFileNamed("pew-pew-lei.caf", waitForCompletion: false))
+        
         let touchLocation = touch.location(in: self)
         
         let projectile = SKSpriteNode(imageNamed: "projectile")
@@ -128,6 +131,55 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if offset.x < 0 {return}
         addChild(projectile)
         
+        let direction = offset.normalized()
+        
+        let shootAmount = direction * 1000
+        
+        let realDest = shootAmount + projectile.position
+        
+        let actionMove = SKAction.move(to: realDest, duration: 2.0)
+        
+        let actionMoveDone = SKAction.removeFromParent()
+        
+        projectile.run(SKAction.sequence([actionMove,actionMoveDone]))
+        
+        
     }
     
+    func projectileDidCollideWithMonster(projectile: SKSpriteNode, monster: SKSpriteNode){
+        projectile.removeFromParent()
+        monster.removeFromParent()
+        monstersDestroyed += 1
+        
+        if monstersDestroyed > 4 {
+            let reveal = SKTransition.flipHorizontal(withDuration: 0.5)
+            let gameOverScene = GameOverScene(size: self.size, won: true)
+            view?.presentScene(gameOverScene, transition: reveal)
+        }
+    }
+    
+}
+
+extension GameScene: SKPhysicsContactDelegate {
+  func didBegin(_ contact: SKPhysicsContact) {
+    
+    var firstBody: SKPhysicsBody
+    var secondBody: SKPhysicsBody
+    if contact.bodyA.categoryBitMask < contact.bodyB.categoryBitMask {
+      firstBody = contact.bodyA
+      secondBody = contact.bodyB
+    } else {
+      firstBody = contact.bodyB
+      secondBody = contact.bodyA
+    }
+    
+    
+    if ((firstBody.categoryBitMask & PhysicsCategory.monster != 0) &&
+      (secondBody.categoryBitMask & PhysicsCategory.projectile != 0)) {
+      if let monster = firstBody.node as? SKSpriteNode,
+        let projectile = secondBody.node as? SKSpriteNode {
+        projectileDidCollideWithMonster(projectile: projectile, monster: monster)
+      }
+    }
+  }
 }
