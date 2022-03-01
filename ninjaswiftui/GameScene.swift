@@ -50,6 +50,7 @@ class GameScene: SKScene {
     
     let player = SKSpriteNode(imageNamed:  "player")
     var monstersDestroyed = 0
+    var score = 0;
     
     override func didMove(to view: SKView) {
         backgroundColor = SKColor.white
@@ -103,7 +104,14 @@ class GameScene: SKScene {
         
         let actionMoveDone = SKAction.removeFromParent()
         
-        monster.run(SKAction.sequence([actionMove,actionMoveDone]))
+        let loseAction = SKAction.run(){ [weak self] in
+            guard let `self` = self else {return}
+            let reveal = SKTransition.flipHorizontal(withDuration: 0.5)
+            let gameOverScene = GameOverScene(size: self.size, won: false, score: self.score)
+            self.view?.presentScene(gameOverScene, transition: reveal)
+        }
+        
+        monster.run(SKAction.sequence([actionMove,loseAction, actionMoveDone]))
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -150,10 +158,11 @@ class GameScene: SKScene {
         projectile.removeFromParent()
         monster.removeFromParent()
         monstersDestroyed += 1
+        score += 1
         
         if monstersDestroyed > 4 {
             let reveal = SKTransition.flipHorizontal(withDuration: 0.5)
-            let gameOverScene = GameOverScene(size: self.size, won: true)
+            let gameOverScene = GameOverScene(size: self.size, won: true, score: score)
             view?.presentScene(gameOverScene, transition: reveal)
         }
     }

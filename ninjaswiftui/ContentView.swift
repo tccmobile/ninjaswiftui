@@ -16,7 +16,7 @@ struct ContentView: View {
         let scene = GameScene()
 
         scene.size = CGSize(width: 300, height: 400)
-        scene.scaleMode = .aspectFill
+        scene.scaleMode = .resizeFill
         
         return scene
     }

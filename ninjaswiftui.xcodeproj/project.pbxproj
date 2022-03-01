@@ -115,9 +115,9 @@
 				6F58679527A20F9C00208535 /* GameScene.swift */,
 				6F786CDF279E02C600FB4A4D /* ninjaswiftuiApp.swift */,
 				6F786CE1279E02C600FB4A4D /* ContentView.swift */,
+				6F0B3ED227BB301B00C7F8A1 /* GameOverScene.swift */,
 				6F786CE3279E02C600FB4A4D /* Assets.xcassets */,
 				6F786CE5279E02C600FB4A4D /* Preview Content */,
-				6F0B3ED227BB301B00C7F8A1 /* GameOverScene.swift */,
 			);
 			path = ninjaswiftui;
 			sourceTree = "<group>";
